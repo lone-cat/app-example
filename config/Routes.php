@@ -10,6 +10,12 @@ $router = $container->get(Router::class);
 
 $router->addGet('main', '/', DefaultController::class);
 
+$router->addGet('page1', '/page1',
+    function (ServerRequestInterface $request): ResponseInterface {
+        return $this->renderResponse('App/Page1', ['request' => $request]);
+    }
+);
+
 $router->addGet('page2', '/page2', [DefaultController::class => 'page2'])->middleware(
     function (ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface {
         $response = $handler->handle($request);

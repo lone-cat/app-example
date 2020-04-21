@@ -1,0 +1,7 @@
+<?php
+$this->extend('Layout/Default');
+?>
+<?php $this->beginBlock('content'); ?>
+    <h1>Page1</h1>
+    <?= $this->encode($request->getUri()->getHost()) ?>
+<?php $this->endBlock(); ?>
