@@ -1,0 +1,17 @@
+version: "3.7"
+
+services:
+
+  nginx:
+    build: ./docker/nginx
+    ports:
+      - "127.0.0.1:80:80"
+    volumes:
+      - ./:/app
+    depends_on:
+      - php
+
+  php:
+    build: ./docker/php
+    volumes:
+      - ./:/app
